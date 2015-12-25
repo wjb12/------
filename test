@@ -1,0 +1,45 @@
+## 1在js中实现一个字符串的反转
+```js
+var str = "a,b,c,d";
+var reverse= function (strs) {
+   return  strs.split("").reverse().join("")
+ }
+ console.log(reverse(str));
+```
+##2判断字符串中出现次数最多的字符，并统计出现的次数
+```js
+var str = "sdssssssdddddzx4z514848454884548";
+function findMaxTimes(str) {
+    var tmp = str.split('').sort().join('');
+ 
+    var key = '';
+    var times = 0;
+    var re = /(\w)\1+/g;
+    tmp.replace(re, function(k, v) {
+        if (times < k.length) {
+            times = k.length;
+            key = v;
+        }
+    });
+ 
+    return {
+        key: key,
+        times: times
+    }
+}
+console.log(findMaxTimes(str));
+```
+## 3请给array本地对象添加个原型方法，删除数组条目中重复的条目，返回值是一个被删除重复条目的数组
+```js
+var arr = [1,2,3,2,3,2,30,20,18,34];
+Array.prototype.delRepeat= function(arguments){
+  var darr = [];
+   for(var i=0,len=this.length;i<len;i++){
+        if(darr.indexOf(this[i])==-1){
+            darr.push(this[i]);
+        }
+    }
+    return darr
+}
+console.log(arr.delRepeat());
+```
